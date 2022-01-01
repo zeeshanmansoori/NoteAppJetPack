@@ -21,7 +21,8 @@ Note app with JetPackCompose and SqlDelight.
 
 ## Screenshots
 | <img src="screenshots/home.jpg" width="200"/> |  <img src="screenshots/note.jpg" width="200"/> |  <img src="screenshots/home2.jpg" width="200"/> |
-
+|-----------------------------------------------| -----------------------------------------------| ----------------------------------------------- |
 ## Demo
 
 |  <img src="screenshots/demo.gif" width="200"/> |
+| ----------------------------------------------- |
