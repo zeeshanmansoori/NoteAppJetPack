@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.zee.noteapp.presentation.notes.components.NoteItem
 import com.zee.noteapp.presentation.notes.components.OrderSection
 import com.zee.noteapp.util.Screen
@@ -50,7 +51,9 @@ fun NoteScreen(
 
         Column(modifier = Modifier.fillMaxSize()) {
             Row(
-                modifier = Modifier.fillMaxWidth().padding(8.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
             ) {
 
@@ -85,11 +88,15 @@ fun NoteScreen(
                 LazyColumn(modifier = Modifier.fillMaxSize()) {
                     items(state.notes) { note ->
                         NoteItem(note = note, modifier = Modifier
+                            .padding(horizontal = 10.dp)
                             .fillMaxWidth()
+
                             .clickable {
 
-                                navController.navigate(Screen.AddEditNoteScreen.route+
-                                        "?noteId=${note.id.toInt()}&noteColor=${note.color}")
+                                navController.navigate(
+                                    Screen.AddEditNoteScreen.route +
+                                            "?noteId=${note.id.toInt()}&noteColor=${note.color}"
+                                )
 
                             },
                             onDeleteClick = {
@@ -114,4 +121,11 @@ fun NoteScreen(
 
         }
     }
+}
+
+@ExperimentalAnimationApi
+@androidx.compose.ui.tooling.preview.Preview
+@androidx.compose.runtime.Composable
+fun NoteScreenPreview() {
+    NoteScreen(navController = rememberNavController())
 }
